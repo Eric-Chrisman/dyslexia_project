@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkgnyrrdhcbbp"]
+
+[ext_resource type="Script" path="res://Main/main.gd" id="1_wuku1"]
+[ext_resource type="PackedScene" uid="uid://b13gfip68yiqu" path="res://Game_Scenes/rail_camera.tscn" id="2_g4xks"]
+[ext_resource type="Script" path="res://Utility_Scripts/ESC_Game/esc_script.gd" id="3_y1txk"]
+[ext_resource type="PackedScene" uid="uid://c41ip4roepvh3" path="res://UI/text_box.tscn" id="4_7u7xr"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_wuku1")
+
+[node name="rail_camera" parent="." instance=ExtResource("2_g4xks")]
+
+[node name="esc_game" type="Node" parent="."]
+script = ExtResource("3_y1txk")
+
+[node name="Edit_Text_Ui1" parent="." instance=ExtResource("4_7u7xr")]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = -1.0
+index = 1
+
+[node name="Edit_Text_Ui2" parent="." node_paths=PackedStringArray("last_box") instance=ExtResource("4_7u7xr")]
+offset_left = 668.0
+offset_top = -2.0
+offset_right = 668.0
+offset_bottom = -2.0
+index = 2
+last_box = NodePath("../Edit_Text_Ui1")
+
+[node name="Edit_Text_Ui3" parent="." node_paths=PackedStringArray("last_box") instance=ExtResource("4_7u7xr")]
+offset_left = 1299.0
+offset_top = -2.0
+offset_right = 1299.0
+offset_bottom = -2.0
+index = 3
+last_box = NodePath("../Edit_Text_Ui2")

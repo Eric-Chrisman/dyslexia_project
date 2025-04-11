@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://c41ip4roepvh3"]
+
+[ext_resource type="Theme" uid="uid://dwc1j7r6jor2y" path="res://new_theme.tres" id="1_3gchu"]
+[ext_resource type="Script" path="res://UI/text_box.gd" id="1_yfpxk"]
+
+[node name="Edit_Text_Ui" type="Control" node_paths=PackedStringArray("text_edit_box", "index_label")]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_3gchu")
+script = ExtResource("1_yfpxk")
+text_edit_box = NodePath("CenterContainer/PanelContainer/MarginContainer/TextEdit")
+index_label = NodePath("CenterContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Label2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+placeholder_text = "Enter text here..."
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 385
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Box Number:"
+
+[node name="Label2" type="Label" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "-1"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -20.0
+offset_right = 48.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 405
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 0, 0, 1)
+text = "Regenerate"
+
+[connection signal="text_changed" from="CenterContainer/PanelContainer/MarginContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://71edocxrastw"]
+
+[ext_resource type="Script" path="res://Debug/test.gd" id="1_hglyd"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_hglyd")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 42.0
+offset_top = 115.0
+offset_right = 121.0
+offset_bottom = 146.0
+text = "press me"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(500, 300)
+offset_left = 26.0
+offset_top = 161.0
+offset_right = 526.0
+offset_bottom = 461.0
+text = "The meaning of life, the universe, and everything is"
+placeholder_text = "The meaning of life, the universe, and everything is"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
